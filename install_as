@@ -1,19 +1,28 @@
 #!/bin/bash
 set -e
 
+VERSION="0.1"
 TMP_DIR="/tmp"
 SOURCE_DIR=`pwd`
 IMPORT_AS=`basename $SOURCE_DIR`
 DESTINATION_DIR="$GOROOT"
 
+function version()
+{
+    echo -e "go-install-as v$VERSION"
+}
+
 function usage()
 {
+    version
+    echo -e ""
     echo -e "'go install' a package under a specific import path"
     echo -e ""
     echo -e "\t--tmp-dir=$TMP_DIR"
     echo -e "\t--source-dir=$SOURCE_DIR"
     echo -e "\t--import-as=$IMPORT_AS"
     echo -e "\t--destination-dir=$DESTINATION_DIR"
+    echo -e "\t--version"
     echo -e "\t--help"
 }
 
@@ -23,6 +32,10 @@ while [ "$1" != "" ]; do
     case $PARAM in
         -h | --help)
             usage
+            exit
+            ;;
+        --version)
+            version
             exit
             ;;
         --tmp-dir)
