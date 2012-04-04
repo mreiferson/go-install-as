@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-VERSION="0.1"
+VERSION="0.1.2"
 TMP_DIR="/tmp"
 SOURCE_DIR=`pwd`
 IMPORT_AS=`basename $SOURCE_DIR`
@@ -86,7 +86,10 @@ env GOPATH="$working_dir:$GOPATH" go install -x
 goos=`go env GOOS`
 goarch=`go env GOARCH`
 pkg_dir="${goos}_${goarch}"
-echo "copying to $DESTINATION_DIR/pkg/$pkg_dir/"
+echo "copying PKG to $DESTINATION_DIR/pkg/$pkg_dir/"
 cp -R $working_dir/pkg/$pkg_dir/* $DESTINATION_DIR/pkg/$pkg_dir/
+
+echo "copying SRC to $DESTINATION_DIR/src/"
+cp -R $working_dir/src/* $DESTINATION_DIR/src/
 
 rm -rf "$working_dir"
