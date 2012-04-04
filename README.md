@@ -1,6 +1,6 @@
 ### go-install-as
 
-'go install' a package under a specific import path
+`go install` a package under a specific import path
 
 ### Installation
 
@@ -10,7 +10,7 @@
 
 When building code for production you often want to finer grain control over dependencies.
 
-This tool allows you to 'go install' packages, regardless of their source (private, etc.), into whatever import path you specify.
+This tool allows you to `go install` packages, regardless of their source (private, etc.), into whatever import path you specify.
 
 ### Example
 
