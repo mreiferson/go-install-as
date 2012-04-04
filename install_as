@@ -68,10 +68,12 @@ mkdir -p $build_dir
 cp -R $SOURCE_DIR/* $build_dir
 cd $build_dir
 echo "go install'ing"
-env GOPATH="$working_dir:$GOPATH" go install
+env GOPATH="$working_dir:$GOPATH" go install -x
 
 goos=`go env GOOS`
 goarch=`go env GOARCH`
 pkg_dir="${goos}_${goarch}"
 echo "copying to $DESTINATION_DIR/pkg/$pkg_dir/"
 cp -R $working_dir/pkg/$pkg_dir/* $DESTINATION_DIR/pkg/$pkg_dir/
+
+rm -rf "$working_dir"
