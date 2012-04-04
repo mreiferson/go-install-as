@@ -54,17 +54,17 @@ while [ "$1" != "" ]; do
     shift
 done
 
-if [ ! -d $TMP_DIR ]; then
+if [ -z $TMP_DIR ] || [ ! -d $TMP_DIR ]; then
     echo "--tmp-dir must exist"
     exit 1
 fi
 
-if [ ! -d $SOURCE_DIR ]; then
+if [ -z $SOURCE_DIR ] || [ ! -d $SOURCE_DIR ]; then
     echo "--source-dir must exist"
     exit 1
 fi
 
-if [ ! -d $DESTINATION_DIR ]; then
+if [ -z $DESTINATION_DIR ] || [ ! -d $DESTINATION_DIR ]; then
     echo "--destination-dir must exist"
     exit 1
 fi
