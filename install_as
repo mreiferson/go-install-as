@@ -10,7 +10,6 @@ function usage()
 {
     echo -e "'go install' a package under a specific import path"
     echo -e ""
-    echo -e "./$0"
     echo -e "\t(--tmp-dir=$TMP_DIR)"
     echo -e "\t(--source-dir=$SOURCE_DIR)"
     echo -e "\t(--import-as=$IMPORT_AS)"
