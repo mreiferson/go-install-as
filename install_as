@@ -98,7 +98,7 @@ cp -R $working_dir/pkg/$pkg_dir/* $pkg_dest
 src_dest="$DESTINATION_DIR/src/"
 if [ "$USING_GOROOT" == "1" ]; then
     # GOROOT does not follow convention for src directory, sigh
-    src_dest="$src_dest/pkg/"
+    src_dest="${src_dest}pkg/"
 fi
 echo "copying SRC to $src_dest"
 cp -R $working_dir/src/* $src_dest
