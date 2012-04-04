@@ -6,11 +6,6 @@ TMP_DIR="/tmp"
 SOURCE_DIR=`pwd`
 IMPORT_AS=`basename $SOURCE_DIR`
 DESTINATION_DIR=`echo $GOPATH | awk -F: '{print $1}'`
-if [ -z $DESTINATION_DIR ]; then
-    # try GOROOT
-    USING_GOROOT="1"
-    DESTINATION_DIR="$GOROOT"
-fi
 
 function version()
 {
@@ -96,10 +91,6 @@ echo "copying PKG to $pkg_dest"
 cp -R $working_dir/pkg/$pkg_dir/* $pkg_dest
 
 src_dest="$DESTINATION_DIR/src/"
-if [ "$USING_GOROOT" == "1" ]; then
-    # GOROOT does not follow convention for src directory, sigh
-    src_dest="${src_dest}pkg/"
-fi
 echo "copying SRC to $src_dest"
 cp -R $working_dir/src/* $src_dest
 
