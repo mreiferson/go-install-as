@@ -94,4 +94,10 @@ src_dest="$DESTINATION_DIR/src/"
 echo "copying SRC to $src_dest"
 cp -R $working_dir/src/* $src_dest
 
+if [ -d $working_dir/bin ]; then
+    bin_dest="$DESTINATION_DIR/bin/"
+    echo "copying BIN to $bin_dest"
+    cp -R $working_dir/bin/* $bin_dest
+fi
+
 rm -rf "$working_dir"
