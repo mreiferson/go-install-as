@@ -8,7 +8,7 @@
 
 ### Why
 
-When building code for production you often want to finer grain control over dependencies.
+When building code for production you often want to have finer grain control over dependencies.
 
 This tool allows you to `go install` packages, regardless of their source (private, etc.), into whatever import path you specify.
 
