@@ -81,7 +81,7 @@ mkdir -p $build_dir
 cp -R $SOURCE_DIR/* $build_dir
 cd $build_dir
 echo "go install'ing"
-env GOPATH="$working_dir:$GOPATH" go install -x
+env GOPATH="$working_dir:$GOPATH" $GOROOT/bin/go install -x
 
 goos=`go env GOOS`
 goarch=`go env GOARCH`
